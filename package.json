@@ -29,7 +29,7 @@
         "url": "https://github.com/zone117x/node-stratum-pool.git"
     },
     "dependencies": {
-        "unomp-multi-hashing": "git://github.com/Kukunin/node-multi-hashing.git",
+        "unomp-multi-hashing": "git://github.com/UNOMP/node-multi-hashing.git",
         "bignum": "*",
         "base58-native": "*",
         "async": "*",
