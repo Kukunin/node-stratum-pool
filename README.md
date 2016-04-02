@@ -1,18 +1,11 @@
 High performance Stratum poolserver in Node.js. One instance of this software can startup and manage multiple coin
-pools, each with their own daemon and stratum port :)
+pools, each with their own daemon and stratum ports :)
+
+This software has been modefied for merged mining. It is still in development.
 
 #### Notice
 This is a module for Node.js that will do nothing on its own. Unless you're a Node.js developer who would like to
-handle stratum authentication and raw share data then this module will not be of use to you. For a full featured portal
-that uses this module, see [NOMP (Node Open Mining Portal)](https://github.com/zone117x/node-open-mining-portal). It
-handles payments, website front-end, database layer, mutli-coin/pool support, auto-switching miners between coins/pools,
-etc.. The portal also has an [MPOS](https://github.com/MPOS/php-mpos) compatibility mode so that the it can function as
-a drop-in-replacement for [python-stratum-mining](https://github.com/Crypto-Expert/stratum-mining).
-
-
-[![Build Status](https://travis-ci.org/zone117x/node-stratum-pool.png?branch=master)](https://travis-ci.org/zone117x/node-stratum-pool)
-
-[![NPM](https://nodei.co/npm/stratum-pool.png?downloads=true&stars=true)](https://nodei.co/npm/stratum-pool/)
+handle stratum authentication and raw share data then this module will not be of use to you.
 
 #### Why
 This server was built to be more efficient and easier to setup, maintain and scale than existing stratum poolservers
@@ -23,6 +16,7 @@ lower barrier to entry for other developers to fork and add features or fix bugs
 
 Features
 ----------------------------------
+* Merged Mining Support
 * Daemon RPC interface
 * Stratum TCP socket server
 * Block template / job manager
@@ -35,10 +29,10 @@ Features
 * __POW__ (proof-of-work) & __POS__ (proof-of-stake) support
 * Transaction messages support
 * Vardiff (variable difficulty / share limiter)
-* When started with a coin deamon that hasn't finished syncing to the network it shows the blockchain download progress and initializes once synced
+* When started with a coin daemon that hasn't finished syncing to the network it shows the blockchain download progress and initializes once synced
 
 #### Hashing algorithms supported:
-* ✓ __SHA256__ (Bitcoin, Freicoin, Peercoin/PPCoin, Terracoin, etc..)
+* ✓ __SHA256__ (Bitcoin, Peercoin/PPCoin, Terracoin, etc..)(I've gotten reports Freicoin is not working)
 * ✓ __Scrypt__ (Litecoin, Dogecoin, Feathercoin, etc..)
 * ✓ __Scrypt-Jane__ (YaCoin, CopperBars, Pennies, Tickets, etc..)
 * ✓ __Scrypt-N__ (Vertcoin [VTC])
@@ -65,8 +59,8 @@ Not working currently:
 
 Requirements
 ------------
-* node v0.10+
-* coin daemon (preferably one with a relatively updated API and not some crapcoin :p)
+* node v0.12+
+* coin daemon for primay and auxillery coins (preferably one with a relatively updated API and not some crapcoin :p)
 
 
 Example Usage
@@ -75,7 +69,7 @@ Example Usage
 #### Install as a node module by cloning repository
 
 ```bash
-git clone https://github.com/zone117x/node-stratum-pool node_modules/stratum-pool
+git clone https://github.com/KillerByte/node-stratum-pool node_modules/stratum-pool
 npm update
 ```
 
@@ -350,6 +344,7 @@ pool.start();
 
 Credits
 -------
+* [zone117x](//github.com/zone117x) - Head developer of the original stratum mining pool for node.js
 * [vekexasia](//github.com/vekexasia) - co-developer & great tester
 * [LucasJones](//github.com/LucasJones) - got p2p block notify working and implemented additional hashing algos
 * [TheSeven](//github.com/TheSeven) - answering an absurd amount of my questions, found the block 1-16 problem, provided example code for peer node functionality
@@ -362,7 +357,7 @@ Credits
 
 Donations
 ---------
-To support development of this project feel free to donate :)
+To support development of this project to the original author (zone117x), feel free to donate :)
 
 * BTC: `1KRotMnQpxu3sePQnsVLRy3EraRFYfJQFR`
 * LTC: `LKfavSDJmwiFdcgaP1bbu46hhyiWw5oFhE`
